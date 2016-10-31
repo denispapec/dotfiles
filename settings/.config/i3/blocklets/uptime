@@ -1,0 +1,22 @@
+
+#!/bin/bash
+# created 9/28/16
+# a script to parse uptime from /proc/uptime
+
+# calculate seconds
+#secs=$(awk -F'.' '{print $1%60}' /proc/uptime)
+
+# calculate minutes
+mins=$(awk -F'.' '{print int($1/60%60)}' /proc/uptime)
+
+# calculate hours
+hours=$(awk -F'.' '{print int($1/3600%24)}' /proc/uptime)
+
+# calculate days
+days=$(awk -F'.' '{print int($1/86400)}' /proc/uptime)
+
+# add leading 0 to secs if less than 9
+#if [[ $secs -le 9 ]]; then secs="0${secs}"; fi
+
+# print to shell
+printf " ${days}d ${hours}h ${mins}m "

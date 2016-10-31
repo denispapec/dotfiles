@@ -1,0 +1,17 @@
+#!/bin/bash
+ping=$(ping -c1 8.8.8.8 | grep 'icmp_seq=1' | awk -F' ' '{print $7 $8}' | awk -F'=' '{print $2}')
+
+if [ -n "$ping" ];then
+  #R=$(( $RANDOM % 2 ));
+  #if [ "$R" = "1" ]; then
+    sign=""
+  #else
+  #  sign=""
+  #fi
+  ping=" ${sign} ${ping}"
+else
+  ping="<span color='#FF0000'></span>"
+fi
+
+#echo \#FF0000 # color
+printf " ${ping} "
