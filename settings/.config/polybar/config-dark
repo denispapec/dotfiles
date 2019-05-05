@@ -1,0 +1,551 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   Created By Aditya Shakya. Now heavily modified.
+;
+;==========================================================
+
+[color]
+
+trans = #00000000
+white = #FFFFFF
+black = #000000
+
+bg = #1F1F1F
+fg = #FFFFFF
+fg-alt = #A9ABB0
+
+acolor = #FFFFFF
+curgent = #EF5350
+coccupied = #42A5F5
+
+shade0 = #1F1F1F
+shade1 = #212121
+shade2 = #424242
+shade3 = #616161
+shade4 = #757575
+shade5 = #9E9E9E
+shade6 = #BDBDBD
+shade7 = #D4D4D4
+shade8 = #EEEEEE
+ashade8 = #2C2C2C
+
+## Material Colors
+
+red = #e53935
+pink = #d81b60
+purple = #8e24aa
+deep-purple = #5e35b1
+indigo = #3949ab
+blue = #1e88e5
+light-blue = #039be5
+cyan = #00acc1
+teal = #00897b
+green = #43a047
+light-green = #7cb342
+lime = #c0ca33
+yellow = #fdd835
+amber = #ffb300
+orange = #fb8c00
+deep-orange = #f4511e
+brown = #6d4c41
+grey = #757575
+blue-gray = #546e7a
+
+;==========================================================
+
+[bar/main]
+width = 100%
+height = 24
+offset-x = 2%
+offset-y = 2%
+bottom = false
+fixed-center = true
+line-size = 2
+
+background = ${color.bg}
+foreground = ${color.fg}
+
+;==========================================================
+
+font-0 = "Fantasque Sans Mono:pixelsize=10;3"
+font-1 = "Iosevka Nerd Font:pixelsize=15;3"
+
+;==========================================================
+
+cursor-click = pointer
+;cursor-scroll = ns-resize
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;== Module Location ========================================================
+
+modules-left = arch cpu filesystem memory music ;google ;github ;reddit ;facebook ;youtube ;music ;wnet
+modules-center = weather-london i3 weather-varazdin
+modules-right = wnet wlnet pkg backlight volume battery network date powermenu
+
+tray-position = right
+tray-detached = false
+tray-background = ${color.shade0}
+#tray-detached = false
+#tray-maxsize = 16
+#tray-background = ${root.background}
+tray-offset-x = -38
+tray-offset-y = -22
+tray-padding = 4
+tray-scale = 1.0
+
+;== Modules ========================================================
+
+[module/arch]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.shade0}
+content-foreground = ${color.fg}
+click-left = rofi -show drun -terminal tilix -lines 6 -columns 3 -eh 2 -width 1600 -padding 30 -opacity "85" -font "SFNS Display 20"
+click-right = i3-dmenu-desktop
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+format-padding = 1
+
+;icon-0 = 1;❶
+;icon-1 = 2;❷
+;icon-2 = 3;❸
+;icon-3 = 4;❹
+;icon-4 = 5;❺
+;icon-5 = 6;❻
+;icon-6 = 7;❼
+;icon-7 = 8;❽
+;icon-8 = 9;❾
+;icon-9 = 10;❿
+
+icon-default = 
+
+format = <label-state>
+format-background = ${color.shade1}
+label-active = 
+label-occupied = 
+label-urgent = 
+label-empty = 
+
+label-empty-padding = 1
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+
+label-empty-foreground = ${color.fg}
+label-active-foreground = ${color.acolor}
+label-urgent-foreground = ${color.curgent}
+label-occupied-foreground = ${color.coccupied}
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+pin-workspaces = true
+
+;
+ws-icon-0 = 1;①
+ws-icon-1 = 2;②
+ws-icon-2 = 3;③
+ws-icon-3 = 4;④
+ws-icon-4 = 5;⑤
+ws-icon-5 = 6;⑥
+ws-icon-6 = 7;⑦
+ws-icon-7 = 8;⑧
+ws-icon-8 = 9;⑨
+ws-icon-9 = 10;⑩
+ws-icon-10 = 11;⑪
+ws-icon-11 = 12;⑫
+ws-icon-12 = 13;⑬
+ws-icon-13 = 14;⑭
+ws-icon-14 = 15;⑮
+ws-icon-15 = 16;⑯
+ws-icon-16 = 17;⑰
+ws-icon-17 = 18;⑱
+ws-icon-18 = 19;⑲
+ws-icon-19 = 20;⑳ 
+ws-icon-20 = 21;㉑
+ws-icon-default = |
+
+label-mode = "%mode%"
+label-mode-padding = 2
+label-mode-background = ${color.shade3}
+label-mode-foreground = ${color.shade8}
+
+label-focused = "%icon%"
+label-focused-font = 2
+label-focused-background = ${color.shade2}
+#label-focused-overline = ${colors.primary}
+label-focused-padding = 1
+
+label-unfocused = "%icon%"
+label-unfocused-font = 2
+label-unfocused-padding = 1
+
+label-urgent = "%icon%"
+label-urgent-font = 2
+label-urgent-background = ${color.shade8}
+label-urgent-foreground = ${color.shade3}
+label-urgent-padding = 1
+
+label-visible = "%icon%"
+label-visible-font = 2
+label-visible-foreground = ${color.fg}
+label-visible-padding = 1
+
+[module/google]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${color.shade8}
+content-background = ${color.shade4}
+click-left = xdg-open https://www.google.com/ 
+
+[module/reddit]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${color.shade8}
+content-background = ${color.shade4}
+click-left = xdg-open https://www.reddit.com/
+
+[module/github]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${color.shade8}
+content-background = ${color.shade4}
+click-left = xdg-open https://www.github.com/ 
+
+[module/youtube]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${color.shade8}
+content-background = ${color.shade4}
+click-left = xdg-open https://www.youtube.com/
+
+;==========================================================
+
+[module/mpd]
+type = internal/mpd
+format-online = <toggle> <label-song> 
+;format-online =  <label-song> 
+;alt icons =   
+format-online-foreground = ${color.ashade8}
+format-online-background = ${color.shade8}
+format-online-padding = 2
+
+icon-play = 喇
+icon-pause = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+;==========================================================
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+spacing = 0
+
+mount-0 = /
+mount-1 = /data
+
+label-mounted-padding = 2
+label-mounted = %mountpoint%: %percentage_used%%
+label-mounted-background = ${color.shade2}
+label-mounted-foreground = ${color.shade8}
+
+click-left = nautilus &
+
+[module/cpu]
+type = internal/cpu
+interval = 0.1
+format = <ramp-coreload>
+format-padding = 2
+#format-prefix = "   "
+#format-prefix-foreground = ${color.shade5}
+format-background = ${color.shade1}
+#format-underline = #f90000
+label = %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = ${color.ashade8}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = ${color.shade2}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = ${color.shade3}
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = ${color.shade4}
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = ${color.shade5}
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = ${color.shade6}
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = ${color.shade7}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = ${color.shade8}
+
+[module/battery]
+type = internal/battery
+time-format = %H:%M
+battery = BAT0
+adapter = ADP1
+full-at = 100
+format-charging = <animation-charging> <label-charging>
+format-charging-background = ${color.shade4}
+format-charging-padding = 2
+label-charging = %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${color.shade4}
+format-discharging-padding = 2
+label-discharging = %percentage%%
+format-full = <label-full>
+format-full-padding = 2
+
+format-full-prefix = "  "
+format-full-background = ${color.shade4}
+format-full-foreground = ${color.fg}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+ramp-capacity-0-foreground = ${color.red}
+ramp-capacity-1-foreground = ${color.red}
+ramp-capacity-foreground   = ${color.fg}
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+animation-charging-framerate = 500
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-padding = 2
+format-background = ${color.shade3}
+format-foreground = ${color.shade8}
+label = %gb_used%
+
+[module/wnet]
+type = internal/network
+interface = enp59s0
+
+interval = 1
+udspeed-minwidth = 5
+accumulate-stats = false
+unknown-as-up = true
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-packetloss> <label-connected>
+
+label-connected = 
+label-connected-padding = 2
+label-connected-foreground = ${color.shade0}
+label-connected-background = ${color.shade7}
+label-disconnected = 
+label-disconnected-foreground = ${color.shade0}
+label-disconnected-background = ${color.shade7}
+
+[module/wlnet]
+type = internal/network
+interface = wlp60s0
+
+interval = 1
+udspeed-minwidth = 5
+accumulate-stats = false
+unknown-as-up = true
+format-packetloss = <animation-packetloss> <label-packetloss> <label-connected>
+
+; %essid%
+label-connected = %signal%%
+; %upspeed% %downspeed:9%
+format-connected =  <label-connected>
+; <ramp-signal>
+format-connected-padding = 2
+format-connected-foreground = ${color.shade0}
+format-connected-background = ${color.shade7}
+format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${color.shade0}
+format-disconnected-background = ${color.shade7}
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = ${color.shade0}
+animation-packetloss-0-background = ${color.shade7}
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = ${color.shade0}
+animation-packetloss-1-background = ${color.shade7}
+animation-packetloss-framerate = 500
+
+
+[module/volume]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
+format-volume-background = ${color.shade5}
+format-volume-foreground = ${color.shade1}
+label-volume = %percentage%%
+label-muted = "婢"
+label-muted-background = ${color.shade5}
+label-muted-foreground = ${color.shade1}
+label-muted-padding = 2
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奄
+ramp-volume-2 = 奔
+ramp-volume-3 = 奔
+ramp-volume-4 = 墳
+ramp-volume-5 = 墳
+ramp-volume-6 = 墳
+
+[module/backlight]
+type = internal/xbacklight
+format = <ramp> <label>
+format-background = ${color.shade5}
+format-foreground = ${color.shade1}
+format-padding = 2
+label = %percentage%%
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+[module/network]
+type = custom/script
+exec = ~/.config/polybar/ping.sh
+interval = 2
+format-background = ${color.shade3}
+format-padding = 2
+;click-left = networkmanager_dmenu &
+;click-right = networkmanager_dmenu &
+tail = true
+
+[module/date]
+type = internal/date
+interval = 1
+label =  %time%
+label-padding = 2
+label-background = ${color.shade2}
+time =  %d. %m. 1%Y. %H:%M:%S
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 2
+label-open = 襤
+label-open-foreground = ${color.shade8}
+label-close = cancel
+label-close-foreground = ${color.shade5}
+label-separator = "  |  "
+label-separator-foreground = ${color.shade5}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/music]
+type = custom/script
+interval = 2
+
+label = %output:0:100:...%
+exec = ~/.config/polybar/music.sh
+format-padding = 2
+format-background = ${color.shade4}
+format-foreground = ${color.shade8}
+
+format = <label>
+animation-music-0 = 奄
+animation-music-1 = 奄
+animation-music-2 = 奔
+animation-music-3 = 奔
+animation-music-4 = 墳
+animation-music-5 = 墳
+animation-music-6 = 墳
+animation-music-framerate = 200
+
+click-left = spotify &
+
+[module/pkg]
+type = custom/script
+exec = ~/.config/polybar/packages.sh
+format-background = ${color.shade6}
+format-foreground = ${color.shade1}
+format-padding = 2
+interval = 300
+tail = true
+click-left = ~/.config/polybar/update.sh
+
+
+#############
+## Weather ##
+#############
+[module/weather-london]
+type = custom/script
+exec = ~/.config/polybar/weather.sh 2643743
+interval = 600
+;label-font = 6
+format-background = ${color.shade2}
+format-foreground = ${color.fg}
+format-padding = 2
+format = %{A1:~/.config/polybar/weather-details.sh 'London':} <label> %{A}
+
+[module/weather-varazdin]
+type = custom/script
+exec = ~/.config/polybar/weather.sh 3188383
+interval = 600
+;label-font = 6
+format-background = ${color.shade2}
+format-foreground = ${color.fg}
+format-padding = 2
+format = %{A1:~/.config/polybar/weather-details.sh 'Varazdin':} <label> %{A}
+
+;== EOF ========================================================
